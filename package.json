@@ -1,0 +1,27 @@
+{
+  "name": "getit",
+  "version": "1.0.0",
+  "description": "første server",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+ },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LotteKildebro/getit.git"
+  },
+  "author": "Lotte",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LotteKildebro/getit/issues"
+  },
+  "homepage": "https://github.com/LotteKildebro/getit#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.12"
+  }
+}

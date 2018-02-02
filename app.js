@@ -3,6 +3,8 @@
 const express = require('express');
 //lav nu 1 indstands (1 element)
 const app = express();
+const logger = require('morgan');
+app.use(logger('dev'));
 
 //Vi beder vores app om at kører funktionen get
 //udover at lytte på port 3000, skal der stå i adresse baren : localhost:3000/api/test

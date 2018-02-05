@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id="content"></div>
+
+    <script>
+    fetch('http://localhost:3000/api/profile')
+    .then((response) => {
+        if (true) {
+            return response.json();
+        } else {
+            throw new Error("virker ikke");
+        }
+
+   
+    })
+
+
+    .then((json) => {
+         
+    let content = document.getElementById('content');
+    let h1 = document.createElement('h1');
+    h1.textContent = json.navn;
+    content.appendChild(h1);
+
+    let p = document.createElement('p');
+    p.textContent = `art: ${json.art}, level: ${json.level}`;
+
+    content.appendChild(p);
+
+    })
+    .catch(function (error) {
+        console.log(error);
+    });
+</script>
+</body>
+
+</html>

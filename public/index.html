@@ -1,23 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
+<style>
+    #content {
+ color: rgb(109, 129, 158);
+    }
+    h1{
+        color: rgb(112, 134, 127);
+    }
+    ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #c5c1c1;
+}
+
+li a {
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+}
+li a hover{
+    color: aquamarine;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+a:hover { 
+    background-color: yellow;
+}
+
+</style>
+
 <body>
-    <h1>DET VIRKER!!!</h1>
-    
+        <nav>
+                <ul>
+                        <a href="index.html"><li>Getit</li></a>
+                        <a href="site2.html"><li>Profile</li></a>
+                        <a href=""><li>..</li></a>
+                        <a href=""><li>....</li></a>
+                      </ul>
+                </nav>
+
+    <h1>Test site</h1>
+    <div id="content"></div>
+
     <script>
+
+
+ 
         fetch('http://localhost:3000/api/getit')
-            .then(response => {
-                console.log(response);
-                return response.json()
-            }) .then(json => {
-                console.log(json);
+            .then((response) => {
+                if (true) {
+                    return response.json();
+                } else {
+                    throw new Error("virker ikke");
+                }
+
+           
             })
-    
+
+
+            .then((json) => {
+                 
+            let content = document.getElementById('content');
+            let h1 = document.createElement('h1');
+            h1.textContent = json.navn;
+            content.appendChild(h1);
+
+            let p = document.createElement('p');
+            p.textContent = `navn: ${json.efternavn}, efternavn: ${json.alder}`;
+
+            content.appendChild(p);
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+
+        // fetch('http://localhost:3000/api/profile')
+        //     .then(response => {
+        //         console.log(response);
+        //         return response.json()
+        //     }).then(json => {
+        //         console.log(json);
+        //     })
+
+        // fetch('http://localhost:3000/api/test')
+        //     .then(response => {
+        //         console.log(response);
+        //         return response.json()
+        //     }).then(json => {
+        //         console.log(json);
+        //     })
+        // fetch('http://localhost:3000/api/kunstner')
+        //     .then(response => {
+        //         console.log(response);
+        //         return response.json()
+        //     }).then(json => {
+        //         console.log(json);
+        //     })
+
     </script>
 </body>
+
 </html>
